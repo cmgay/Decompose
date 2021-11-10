@@ -1,0 +1,72 @@
+import os
+print(os.getcwd())
+from pandas import read_csv
+from matplotlib import pyplot
+df = read_csv('airline-passengers.csv', header=0, index_col=0)
+series.plot()
+pyplot.show()
+from pandas import read_csv
+from matplotlib import pyplot as plt
+from matplotlib import dates as mdates
+from statsmodels.tsa.seasonal import seasonal_decompose
+result = seasonal_decompose(df, model='multiplicative', period=12)
+
+fig, (ax1,ax2,ax3,ax4) = plt.subplots(4,1, figsize=(15,8))
+result.trend.plot(ax=ax2, legend=False)
+ax2.set_ylabel('Trend')
+result.resid.plot(ax=ax4, legend=False)
+ax4.set_ylabel('Residual')
+ax4.set_xlabel='Date'
+result.seasonal.plot(ax=ax3, legend=False)
+ax3.set_ylabel('Seasonal')
+result.observed.plot(ax=ax1, legend=False)
+ax1.set_ylabel('Observed')
+ax1.set_title('BGE Accounts Receivable')
+
+result.plot()
+plt.show()
+from pandas import Series
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+series = [i**2.0 for i in range(1,8)]
+result = seasonal_decompose(series, model='multiplicative', period=1)
+result.plot()
+pyplot.show()
+from pandas import read_csv
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+series = read_csv('airline-passengers.csv', header=0, index_col=0)
+result = seasonal_decompose(series, model='multiplicative',period=1)
+result.plot()
+pyplot.show()
+from random import randrange
+from pandas import Series
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+series = [i+randrange(10) for i in range(1,100)]
+result = seasonal_decompose(series, model='additive', period=1)
+result.plot()
+pyplot.show()
+1
+2
+3
+4
+5
+6
+7
+8
+from random import randrange
+from pandas import Series
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+series = [i+randrange(10) for i in range(1,100)]
+result = seasonal_decompose(series, model='additive', period=1)
+result.plot()
+pyplot.show()
+from pandas import Series
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+series = [i**2.0 for i in range(2,100)]
+result = seasonal_decompose(series, model='multiplicative', period=1)
+result.plot()
+pyplot.show()
